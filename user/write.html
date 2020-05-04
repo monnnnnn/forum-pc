@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>粤说论坛</title>
+
+        <!-- 清除样式 -->
+        <style>           
+        *{
+            margin:0; 
+            padding:0;
+            font-size:14px;
+            font-family:"微软雅黑";
+        }
+        </style>
+
+        <!-- 样式链接 -->
+        <link href="../assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+       
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+       
+        <link href="../assets/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
+        
+        <link href="../assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+       
+        <link href="../assets/css/home.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> 
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+        <link href="../assets/css/index.css" rel="stylesheet">   
+
+                
+    </head>
+
+    <body>
+        <!-- 页头 -->
+        <div style="height: 50px;background-color: black;color: white;">
+            <div style="padding: 12px 260px;">
+                <span class="glyphicon glyphicon-leaf" style="font-size: 18px;" aria-hidden="true"></span>
+                <span style="font-size: 18px;">粤说</span>
+                <a id="land" href="../login.html" style="float: right;color: white;padding: 2px;display:none">登录/注册</a>
+                <a id="user" href ="javascript:void(0);" onclick ="personal()" style="float: right;color: white;padding: 2px;"></a>
+            </div>    
+        </div>
+        <!-- 路径导航 -->
+        <div style="width: 70%;margin: 50px auto 0;">
+            <ol class="breadcrumb" style="background-color: white;">
+                <li><a href="home.html">首页</a></li>
+                <li class="active">写帖子</li>
+            </ol>
+        </div>      
+
+        <!-- 内容 -->
+        <div class=page style="width: 70%;">
+            <div style="margin: 20px 50px;">
+                <p>选择板块</p>
+                <hr/>
+                <div style="display: flex;flex-wrap: nowrap;">
+                    <div style="margin-right: 100px;">
+                        <select id="selBlock" style="border: 1px solid gainsboro;padding: 5px 20px;border-radius: 8px;outline:none;">
+                            <option selected="selected" value="0">人文风景</option>
+                            <option value="1">美食文化</option>
+                            <option value="2">风俗习惯</option>
+                            <option value="3">语言魅力</option>
+                            <option value="4">娱乐活动</option>
+                        </select>        
+                    </div>
+                    <div style="margin-right: 100px;">
+                        <select id="selRegion" style="border: 1px solid gainsboro;padding: 5px 20px;border-radius: 8px;outline:none;">
+                            <option selected="selected" value="中山市">中山市</option>
+                            <option value="广州市">广州市</option>
+                            <option value="佛山市">佛山市</option>
+                        </select>                            
+                    </div>
+                </div>
+            </div>
+            <div style="margin: 80px 50px 20px;">
+                <p>编辑标题</p>
+                <hr/>
+                <input id="title" type="text" placeholder="输入你的标题吧~" style="width: 60%;height: 30px;">            
+            </div>
+            <div style="margin: 80px 50px 20px;">
+                <p>编辑简介</p>
+                <hr/>
+                <textarea id="remarks" rows="3"  style="width: 80%;"  placeholder="输入你的简介吧~"></textarea>
+            </div>
+            <div style="margin: 80px 50px 20px;">
+                <p>编辑封面图片（可不填）</p>
+                <hr/>                
+                <div class="file-box">
+                    <input type="file" value="" name="file" id = "input_file"
+                    accept="image/*" onchange="imgPreview(this,0)" >
+                </div>
+            <div style="margin: 80px 0 20px;">
+                <p>编辑内容</p>
+                <hr/>
+                <div class="container" style="width: 100%;">
+                    <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+                        <!-- 字体样式 -->
+                        <div class="btn-group">
+                          <a class="btn" data-edit="bold" title="加粗 (Ctrl/Cmd+B)"><i class="icon-bold"></i></a>
+                          <a class="btn" data-edit="italic" title="倾斜 (Ctrl/Cmd+I)"><i class="icon-italic"></i></a>
+                          <a class="btn" data-edit="strikethrough" title="划线"><i class="icon-strikethrough"></i></a>
+                          <a class="btn" data-edit="underline" title="下划线 (Ctrl/Cmd+U)"><i class="icon-underline"></i></a>
+                        </div>
+                        <!-- 序列化 -->
+                        <div class="btn-group">
+                          <a class="btn" data-edit="insertunorderedlist" title="无序列表t"><i class="icon-list-ul"></i></a>
+                          <a class="btn" data-edit="insertorderedlist" title="有序列表"><i class="icon-list-ol"></i></a>
+                          <a class="btn" data-edit="outdent" title="减少缩进 (Shift+Tab)"><i class="icon-indent-left"></i></a>
+                          <a class="btn" data-edit="indent" title="缩进 (Tab)"><i class="icon-indent-right"></i></a>
+                        </div>
+                        <!-- 内容位置 -->
+                        <div class="btn-group">
+                          <a class="btn" data-edit="justifyleft" title="居左 (Ctrl/Cmd+L)"><i class="icon-align-left"></i></a>
+                          <a class="btn" data-edit="justifycenter" title="居中 (Ctrl/Cmd+E)"><i class="icon-align-center"></i></a>
+                          <a class="btn" data-edit="justifyright" title="居右 (Ctrl/Cmd+R)"><i class="icon-align-right"></i></a>
+                        </div> 
+                        <div class="btn-group">
+                            <a class="btn dropdown-toggle" data-toggle="dropdown" title="超链接"><i class="icon-link"></i></a>
+                            <div class="dropdown-menu input-append">
+                                <input class="span2" placeholder="URL" type="text" data-edit="createLink"/>
+                                <button class="btn" type="button">Add</button>
+                            </div>
+                            <a class="btn" data-edit="unlink" title="删除超链接"><i class="icon-cut"></i></a>                  
+                        </div>
+                        
+                        <div class="btn-group">
+                          <a class="btn" title="插入图片（或者拖放）" id="pictureBtn"><i class="icon-picture"></i></a>
+                          <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
+                        </div>
+                        <div class="btn-group">
+                          <a class="btn" data-edit="undo" title="撤销 (Ctrl/Cmd+Z)"><i class="icon-undo"></i></a>
+                          <a class="btn" data-edit="redo" title="重做 (Ctrl/Cmd+Y)"><i class="icon-repeat"></i></a>
+                        </div>
+                        <input type="text" data-edit="inserttext" id="voiceBtn" x-webkit-speech="">
+                    </div>
+                    <div id="editor">
+                        开始编辑吧！ 
+                    </div>           
+                </div>
+            </div>
+            <div style="width: 100%;height: 50px;margin-top: 80px;">
+                <button class="button1" style="margin: 10px 42%;" onclick="onRelease()">发布</button>
+            </div>
+        </div>
+        
+        <!-- js链接 -->
+        <script src="../assets/js/jquery-3.1.1.js"></script>
+        <script src="../assets/js/jquery-3.1.1.min.js"></script>
+        <script src="../assets/js/bootstrap.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../assets/js/myjs/user/write.js"></script>
+        <script src="../assets/js/jquery.hotkeys.js"></script>
+        <script src="../assets/js/bootstrap-wysiwyg.js"></script>
+        <script src="../assets/js/jquery.base64.js"></script>
+        <script src="../assets/js/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+
+        <script>
+            $(function(){
+              function initToolbarBootstrapBindings() {
+                  //富文本图片编辑                        
+                $('[data-role=magic-overlay]').each(function () { 
+                  var overlay = $(this), target = $(overlay.data('target')); 
+                  overlay.css('opacity', 0).css('position', 'absolute').offset(target.offset()).width(target.outerWidth()).height(target.outerHeight());
+                });
+                $('#voiceBtn').hide();
+              };
+              initToolbarBootstrapBindings();  
+              $('#editor').wysiwyg();
+              window.prettyPrint && prettyPrint();
+            });
+
+
+            //提交数据
+            function onRelease() {
+                var userId = sessionStorage.getItem('userId');
+                var ceshi=document.getElementById("ceshi");
+                var html=$('#editor').html();
+                
+                var selBlock = document.getElementById('selBlock');
+                var selRegion = document.getElementById('selRegion');
+                var Block = selBlock.options[selBlock.selectedIndex].value;//选择的版块
+                var Region = selRegion.options[selRegion.selectedIndex].text;//选择的地区
+                
+                var title = document.getElementById('title').value;//标题
+                var remarks = document.getElementById('remarks').value;//简介
+                var image = document.getElementById('input_file').files[0];//图片
+
+
+                //console.log(userId);
+                var formData = new FormData;
+
+                formData.append('userId',userId);//将发帖人id塞进formData
+                formData.append('classify',Block);//将版块塞进formData
+                formData.append('regoin',Region);//将地区塞进formData
+                formData.append('title',title);//将标题塞进formData
+                formData.append('introduce',remarks);//将简介塞进formData
+                formData.append('file',image);//将图片塞进formData
+                formData.append('context',html);//将内容塞进formData
+
+                console.log(image);
+                if(image == undefined){
+                    $.ajax({
+                        type: 'post',
+                        url: 'http://120.79.232.81:9000/invitation/writeNotImg',
+                        dataType: 'json',
+                        data: formData,
+                        processData: false,   // jQuery不要去处理发送的数据
+                        contentType: false,   // jQuery不要去设置Content-Type请求头
+                        success:function(result) {
+                            if(result.code == 200) {
+                                alert('发帖成功！两秒后跳转到个人主页');
+                                setTimeout(function(){                               
+                                    var windowOpen = window.open('personal.html?userId='+userId+'','_self');				
+                                }, 2000);
+                            }else{
+                                alert(result.message);
+                            }
+                        }
+                    });
+                }else{
+                    $.ajax({
+                        type: 'post',
+                        url: 'http://120.79.232.81:9000/invitation/write',
+                        dataType: 'json',
+                        data: formData,
+                        processData: false,   // jQuery不要去处理发送的数据
+                        contentType: false,   // jQuery不要去设置Content-Type请求头
+                        success:function(result) {
+                            if(result.code == 200) {
+                                alert('发帖成功！两秒后跳转到个人主页');
+                                setTimeout(function(){                               
+                                    var windowOpen = window.open('personal.html?userId='+userId+'','_self');				
+                                }, 2000);
+                            }else{
+                                alert(result.message);
+                            }
+                        }
+                    });
+                }
+
+            }
+            
+
+          </script>
+    </body>
+</html>

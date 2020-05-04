@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>论坛管理系统</title>
+
+
+    <!-- Styles -->
+    <link href="../assets/static/assets/css/lib/font-awesome.min.css" rel="stylesheet">
+    <link href="../assets/static/assets/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="../assets/static/assets/css/lib/menubar/sidebar.css" rel="stylesheet">
+    <link href="../assets/static/assets/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/static/assets/css/lib/helper.css" rel="stylesheet">
+    <link href="../assets/static/assets/css/style.css" rel="stylesheet">
+    <script src="../assets/static/jquery/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+        <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+                <div class="nano">
+                    <div class="nano-content">
+                        <div class="logo"><span>论坛管理系统</span></a></div>
+                        <ul>
+                            <li class="label">用户管理</li>
+                            <li><a href="userList.html"><i class="ti-user"></i> 账号列表</a></li>
+                            <li><a href="userAdd.html"><i class="ti-heart"></i>添加账号</a></li>
+                            </li>
+    
+                            <li class="label">帖子管理</li>
+                            <li><a  href="essayList.html"><i class="ti-bar-chart-alt"></i>帖子列表</a></li>
+                            </li>
+    
+                            <li class="label">举报管理</li>
+                            <li><a href="reportList.html"><i class="ti-files"></i>举报列表</a></li>
+                            </li>
+    
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /# sidebar -->
+    
+    
+        <div class="header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="float-left">
+                            <div class="hamburger sidebar-toggle">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <div class="float-right">
+                            <div class="dropdown dib">
+                                <div class="header-icon" data-toggle="dropdown">
+                                    欢迎！<span id="userId1" class="user-avatar" style="margin-left: 10px;"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="content-wrap">
+                <div class="main">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-8 p-r-0 title-margin-right">
+                                <div class="page-header">
+                                    <div class="page-title">
+                                        <h1>你好, <span>欢迎来到论坛管理系统~</span></h1>
+                                    </div>
+                                </div>
+                            </div>   
+                        </div>
+
+                        <div class="content-wrap" >
+                                <div class="main" >
+                                    <div class="container-fluid" >
+                                        <div class="row" style="padding: 0px 100px">
+                                                <div class="col-lg-6" >
+                                                    <div class="card1">
+                                                        <div class="card-title" style="padding: 10px 100px">
+                                                            <h3 >账号详情</h3>
+                                                            <div style="text-align: center">
+                                                            <span style="color: red;font-size: larger"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-body" style="padding: 20px 100px">
+                                                            <div class="basic-form">
+                                                                <div class="form-group" style="display: flex;justify-content: space-between;height: 32px;">
+                                                                    <div style="display: flex;flex-wrap: nowrap;">
+                                                                        <h5>账号ID：</h5>
+                                                                        <p id="userId"></p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group" style="display: flex;justify-content: space-between;">
+                                                                    <h5>密码</h5>
+                                                                    <button onclick="toReset()" class="btn btn-info btn-xs" style="padding:0 10px;" > 重置 </button>
+                                                                </div>
+                                                                <div class="form-group" style="display: flex;justify-content: space-between;height: 32px;">
+                                                                    <div style="display: flex;flex-wrap: nowrap;">
+                                                                        <h5>状态：</h5>
+                                                                        <p id="state"></p>
+                                                                    </div>
+                                                                    <button id="btnStop" onclick="toStop()" class="btn btn-danger btn-xs" style="padding:0 10px;" > 禁用 </button>
+                                                                </div>
+                                                                <div class="form-group" style="display: flex;flex-wrap: nowrap;">
+                                                                    <h5>头像：</h5>
+                                                                    <img id="head" src="" class="img-circle" style="height: 80px;width: 80px;margin: 16px 0;">
+                                                                </div>
+                                                                <div class="form-group" style="display: flex;flex-wrap: nowrap;">
+                                                                    <h5>昵称：</h5>
+                                                                    <p id="userName"></p>
+                                                                </div>
+                                                                <div class="form-group" style="display: flex;flex-wrap: nowrap;">
+                                                                    <h5>简介：</h5>
+                                                                    <p id="remarks"></p>
+                                                                </div>
+                                                                <div class="form-group" style="display: flex;flex-wrap: nowrap;">
+                                                                    <h5>邮箱：</h5>
+                                                                    <p id="email"></p>
+                                                                 </div>
+                                                                <div class="form-group" style="display: flex;flex-wrap: nowrap;">
+                                                                    <h5>权限：</h5>
+                                                                    <p id="role"></p>
+                                                                </div>
+                                                                <div class="form-group" style="display: flex;flex-wrap: nowrap;">
+                                                                    <h5>关注量：</h5>
+                                                                    <p id="attentionNum"></p>
+                                                                </div>
+                                                                <div class="form-group" style="display: flex;flex-wrap: nowrap;">
+                                                                    <h5>粉丝量：</h5>
+                                                                    <p id="fansNum"></p>
+                                                                </div>
+                                                                <div class="form-group" style="display: flex;flex-wrap: nowrap;">
+                                                                    <h5>发帖量：</h5>
+                                                                    <p id="invitationNum"></p>
+                                                                </div>
+                                                                <div class="form-group" style="display: flex;flex-wrap: nowrap;">
+                                                                    <h5>收藏量：</h5>
+                                                                    <p id="collectNum"></p>
+                                                                </div>
+                                                                    
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+    <!-- jquery vendor -->
+    <script src="../assets/static/assets/js/lib/jquery.min.js"></script>
+    <script src="../assets/static/assets/js/lib/jquery.nanoscroller.min.js"></script>
+    <!-- nano scroller -->
+    <script src="../assets/static/assets/js/lib/menubar/sidebar.js"></script>
+    <!-- bootstrap -->
+    <script src="../assets/static/assets/js/lib/bootstrap.min.js"></script>
+    <script src="../assets/static/assets/js/scripts.js"></script>
+
+    <script type="text/javascript" src="../assets/js/myjs/admin/userDetail.js"></script>
+</body>
+</html>

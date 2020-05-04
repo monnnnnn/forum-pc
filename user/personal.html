@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>粤说论坛</title>
+
+        <!-- 清除样式 -->
+        <style>           
+        *{
+            margin:0; 
+            padding:0;
+            font-size:14px;
+            font-family:"微软雅黑";
+        }
+        </style>
+
+        <!-- 样式链接 -->
+        <link href="../assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        
+        <link href="../assets/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
+       
+        <link href="../assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+       
+        <link href="../assets/css/home.css" rel="stylesheet" type="text/css"/>
+
+    
+        
+    </head>
+
+    <body>
+        <!-- 页头 -->
+        <div style="height: 50px;background-color: black;color: white;">
+            <div style="padding: 12px 260px;">
+                <span class="glyphicon glyphicon-leaf" style="font-size: 18px;" aria-hidden="true"></span>
+                <span style="font-size: 18px;">粤说</span>
+                <a id="land" href="../login.html" style="float: right;color: white;padding: 2px;display:none">登录/注册</a>
+                <a id="user" href ="javascript:void(0);" onclick ="personal()" style="float: right;color: white;padding: 2px;"></a>
+            </div>    
+        </div>
+
+        <!-- 路径导航 -->
+        <div style="width: 900px;margin: 50px auto 0;">
+            <ol class="breadcrumb" style="background-color: white;">
+                <li><a href="home.html">首页</a></li>
+                <li class="active">我的主页</li>
+            </ol>
+        </div>      
+
+        <!-- 个人名片 -->
+        <div class=page id="up" style="display: block;">
+            <div style="margin: 20px 50px;display: flex;flex-wrap: nowrap;">
+                <div >
+                    <img id="image" src="../assets/image/head.jpg" alt="头像" class="img-circle" style="height: 80px;width: 80px;margin: 16px 0;">
+                </div>
+                <div style="margin: 0 0 0 30px;width:100%;">
+                    <button id="btnUp" type="button" class="button2" style="float: right;margin: 0;display: none;" onclick="upDate()" >设置</button>
+                    <button id="btnAttention" type="button" class="button2" style="float: right;margin: 0;" onclick="openCare()" >+ 关注</button>
+                    <button id="btnReport" type="button" class="button2" style="float: right;margin:0 10px;color: red;border-color: red;;" onclick="openReport()" >- 举报</button>
+                    <div id="email" style="display: none;"></div>
+                    <div id="userName" style="padding:16px 0;font-size: 18px;">昵称</div>
+                    <div id="remarks" style="width:100%;">简介</div>
+                    <div style="display: flex;justify-content: space-around;margin: 30px 0 0;">
+                        <p id="attent">关注</p>
+                        <p id="fans">粉丝</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 个人名片修改框 -->
+        <div class=page id="on" style="display: none;">
+            <div style="margin: 20px 50px;display: flex;flex-wrap: nowrap;">
+                <div >
+                    <img id="imageChange" src="" alt="头像" class="img-circle" style="height: 80px;width: 80px;margin: 16px 0;">
+                    <div>
+                        <a id="head"  style="margin: 10px 10px;position: relative;">上传头像
+                            <input type="file" style="position: absolute;" alt="sss" name="file" id = "input_file" accept="image/*" onchange="imgPreview(this,0)" >            
+                        </a>
+                    </div>
+                </div>
+                <div style="margin: 0 0 0 30px;width:100%;">
+                    <div style="float: right;">
+                        <button id="submit" type="button" class="button2" style="margin: 0;" onclick="define()" >确定</button>
+                        <button type="button" class="button2" style="margin: 0;" onclick="onClose()" >取消</button>
+                    </div>
+                    
+                    <div style="padding:16px 0;">
+                        修改昵称：<input id="userNameChange" type="text" style="margin-left: 5px;">
+                    </div>
+                    <div style="width:100%;">
+                        修改简介：<textarea id="remarksChange" rows="3"  style="width: 89%;float: right;" ></textarea>
+                    </div>
+                    <div style="padding:56px 0 0;">
+                        修改邮箱：<input id="emailChange" type="text" style="margin-left: 5px;width: 200px;">
+                    </div>
+                    <div style="margin: 26px 0 0;">
+                        <button id="btnPwd1" type="button" class="button2" style="margin: 0;color: red;border-color: red;" onclick="pwd()" >修改密码</button>
+                        <div id="btnPwd2" style="display: flex;justify-content: space-around;visibility: hidden;">
+                            <p>修改密码：<input id="password" type="password" onkeyup="toPass()" style="margin: 0 5px;"></p>
+                            <p>确认密码：<input id="password1" type="password" onkeyup="toPass()" style="margin: 0 5px;"></p>
+                            <p id="tishi" style="width: 28%;color: red;"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 动态 -->
+        <div style="width: 59%;margin: 50px auto;">
+            <h3>历史发帖</h3>
+            <div id="recommend" class="list-group">
+                <!-- js列表 -->
+            </div>
+        </div>
+
+        <!-- js链接 -->
+        <script src="../assets/js/jquery-3.1.1.js"></script>
+        <script src="../assets/js/jquery-3.1.1.min.js"></script>
+        <script src="../assets/js/bootstrap.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../assets/js/myjs/user/personal.js"></script>
+    </body>
+</html>

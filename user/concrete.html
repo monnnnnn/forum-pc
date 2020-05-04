@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>粤说论坛</title>
+
+        <!-- 清除样式 -->
+        <style>           
+        *{
+            margin:0; 
+            padding:0;
+            font-size:14px;
+            font-family:"微软雅黑";
+        }
+        </style>
+
+        <!-- 样式链接 -->
+        <link href="../assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        
+        <link href="../assets/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
+        
+        <link href="../assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        
+        <link href="../assets/css/home.css" rel="stylesheet" type="text/css"/>
+
+        
+    </head>
+
+    <body>
+        <!-- 页头 -->
+        <div style="height: 50px;background-color: black;color: white;">
+            <div style="padding: 12px 260px;">
+                <span class="glyphicon glyphicon-leaf" style="font-size: 18px;" aria-hidden="true"></span>
+                <span style="font-size: 18px;">粤说</span>
+                <a id="land" href="../login.html" style="float: right;color: white;padding: 2px;">登录/注册</a>
+                <a id="user" href ="javascript:void(0);" onclick ="personal()" style="float: right;color: white;padding: 2px;display:none"></a>
+            </div>    
+        </div>
+
+        <div style="display: flex;flex-wrap: nowrap;">
+            <!-- 左边内容 -->
+            <div style="margin: 30px 0 0 100px;">
+                <!-- 路径导航 -->
+                <div >
+                    <ol class="breadcrumb" style="background-color: white;">
+                        <li><a href="home.html">首页</a></li>
+                        <li class="active">帖子详情</li>
+                    </ol>
+                </div>
+
+                <!-- 帖子正文 -->
+                <div class="page" style="box-shadow: none;border: 1px solid rgb(231, 231, 231);">
+                    <div style="margin: 20px 50px;">
+                        <h2 id="title"></h2>
+                        <div id="essay" style="width: 100%;"></div>
+                        <div><span id="time" ></span></div>
+                        <hr/>
+                        <div style="display: flex;flex-wrap: nowrap;justify-content: space-between;">
+                            <button type="button" onclick="btnComment()" class="button2" aria-hidden="true" style="margin: 0 0;width: 60px;">评论</button>
+                            <span style="padding: 6px 0;">
+                                <button id="btnLike" type="button" class="glyphicon glyphicon-heart" onclick="addLike()" style="margin: 0;color: gray;background-color: transparent;border: none;font-size: 18px;outline: none;"></button>
+                                <span id="like">点赞</span>
+                            </span>
+                            <span style="padding: 6px 0;">
+                                <button id="btnCollect" type="button" class="glyphicon glyphicon-star" onclick="addCollect()" style="margin: 0;color: gray;background-color: transparent;border: none;font-size: 18px;outline: none;"></button>
+                                <span id="collect">收藏</span>
+                            </span>
+                            <span id="browse" style="padding: 10px 0;"></span>
+                            <button id="btnDelet" onclick="onDelete()" type="button" class="button2" aria-hidden="true" style="margin: 0 0;width: 60px;border-color: red;color: red;display: none;">删除</button>
+                            <button id="btnReport" onclick="openReport()" type="button" class="button2" aria-hidden="true" style="margin: 0 0;width: 60px;border-color: red;color: red;">举报</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page" style="box-shadow: none;border: 1px solid gainsboro;">
+                    <div style="margin: 20px 50px;">
+                        <h3>编辑评论</h3>
+                        <div id="replay" style="visibility: hidden;">回复：<span id="commentId" style="font-size: 16px;color: black;"></span></div>
+                        <textarea id="comment" rows="5"  style="width: 100%;margin-top: 20px; border: 1px solid gainsboro;padding: 5px 20px;border-radius: 8px;outline:none;"  ></textarea>
+                        <button type="button" onclick="btnSubmit()" class="button2" aria-hidden="true" style="margin: 10px 0;width: 60px;">确定</button>
+                    </div>
+                </div>
+
+                <!-- 评论 -->
+                <div class="page" style="box-shadow: none;border: 1px solid gainsboro;">
+                    <div style="margin: 20px 50px;">
+                        <h3>全部评论</h3>
+                        <hr/>
+                        <div id="recommend">
+                            <!-- js列表 -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 右边内容 -->
+            <div>
+                <div style="margin: 80px 0 0 80px;width: 300px;">
+                    <p>楼主</p>
+                    <hr/>
+                    <div style="display: flex;flex-wrap: nowrap;justify-content: space-between;">
+                        <div style="display: flex;flex-wrap: nowrap;">
+                            <img id="imgHead" src="" class="img-circle" style="height: 42px;width: 42px;margin: 6px 0;">
+                            <p id="userId" style="margin: 16px;display: none;"></p>
+                            <p style="margin: 16px;"><a id="userName" href ="javascript:void(0);" onclick="openPersonal()"></a></p>
+                        </div>
+                        <button onclick="openCare()" type="button" class="button2" aria-hidden="true" style="margin: 15px 0;width: 60px;">关注</button>
+                    </div>
+                    <p id="remarks" style="margin: 10px;"></p>
+                </div>
+                <div style="margin: 80px 0 0 80px;width: 300px;">
+                    <p>相似文章</p>
+                    <hr/>
+                    <ol id="similar">
+                        <!-- js列表 -->
+                    </ol>
+                </div>
+            </div>
+        </div>
+        
+        <!-- js链接 -->
+        <script src="../assets/js/jquery-3.1.1.js"></script>
+        <script src="../assets/js/jquery-3.1.1.min.js"></script>
+        <script src="../assets/js/bootstrap.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../assets/js/myjs/user/concrete.js"></script>
+    </body>
+</html>

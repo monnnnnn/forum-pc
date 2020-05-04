@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>粤说论坛</title>
+
+        <!-- 清除样式 -->
+        <style>           
+        *{
+            margin:0; 
+            padding:0;
+            font-size:14px;
+            font-family:"微软雅黑";
+        }
+        </style>
+
+        <!-- 样式链接 -->
+        <link href="../assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        
+        <link href="../assets/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
+        
+        <link href="../assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        
+        <link href="../assets/css/home.css" rel="stylesheet" type="text/css"/>
+
+    
+        
+    </head>
+
+    <body>
+        <!-- 页头 -->
+        <div style="height: 50px;background-color: black;color: white;">
+            <div style="padding: 12px 260px;">
+                <span class="glyphicon glyphicon-leaf" style="font-size: 18px;" aria-hidden="true"></span>
+                <span style="font-size: 18px;">粤说</span>
+                <a id="land" href="../login.html" style="float: right;color: white;padding: 2px;">登录/注册</a>
+                <a id="user" href ="javascript:void(0);" onclick ="personal()" style="float: right;color: white;padding: 2px;display:none"></a>
+            </div>    
+        </div>
+        <img  src="../assets/image/118.jpg" alt="" style="display: block;width: 100%;" >
+
+        <div id="home" >
+            <!-- 左边版块导航栏 -->
+            <div class="left" >
+                <ul class="nav nav-pills nav-stacked">
+                    <li >
+                        <div style="padding: 30px 15px 10px;">板块分类</div>
+                    </li>
+                    <li >
+                        <a href="home.html">首页</a>
+                    </li>
+                    <li >
+                        <a href ="javascript:void(0);" onclick="openAttention()">我的关注</a>
+                    </li>
+                    <li >
+                        <a href="scenery.html"">人文风景</a>
+                    </li>
+                    <li >
+                        <a href="food.html">美食文化</a>
+                    </li>
+                    <li >
+                        <a href="custom.html">风俗习惯</a>
+                    </li>
+                    <li >
+                        <a href="languages.html">语言魅力</a>
+                    </li>
+                    <li >
+                        <a href="happy.html">娱乐活动</a>
+                    </li>
+                    <li >
+                        <a href ="javascript:void(0);" onclick ="openCollect()" >我的收藏</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- 中间主体内容 -->
+            <div class="middle" >
+                <div style="padding-top:30px;">
+                    <button type="button" class="button1 glyphicon glyphicon-pencil" onclick="openWrite()">写帖子</button>
+                    <div style="float: right;border: 1px solid rgb(235, 235, 235);border-radius: 8px;padding-left:5px;">
+                        <input id="searchTitle" type="text" placeholder="输入你想搜索的内容吧~" style="width: 200px;height: 30px;border: none ;outline:none;">
+                        <button onclick="onSearch()" type="button" class="button1 glyphicon glyphicon-search" aria-hidden="true">
+                    </div>
+                </div>
+                <!-- 推荐列表 -->
+                <div style="padding-top: 30px;">
+                    <h3>推荐</h3>
+                    <div id="recommend" class="list-group">
+                        <!-- js列表 -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧推荐内容 -->
+            <div class="right" >
+                <div style="padding: 80px 20px 0 ;">
+                    <p>近期热榜</p>
+                </div>                
+                <div style="padding: 10px 15px 0 30px;">
+                    <ol id="hot">
+                        <!-- js列表 -->
+                    </ol>
+                </div>
+
+                <hr/>
+
+                <div style="padding: 10px 20px 0 ;">
+                    <p>粤说达人</p>
+                </div>
+                <div id="userHot">
+                    <!-- js列表 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- js链接 -->
+        <script src="../assets/js/jquery-3.1.1.js"></script>
+        <script src="../assets/js/jquery-3.1.1.min.js"></script>
+        <script src="../assets/js/bootstrap.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../assets/js/myjs/user/home.js"></script>
+    </body>
+</html>

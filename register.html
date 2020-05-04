@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>粤说论坛</title>
+
+        <!-- 清除样式 -->
+        <style>           
+        *{
+            margin:0; 
+            padding:0;
+            font-size:14px;
+            font-family:"微软雅黑";
+        }
+        </style>
+
+        <!-- 样式链接 -->
+        <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        
+        <link href="assets/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
+        
+        <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        
+        <link href="assets/css/home.css" rel="stylesheet" type="text/css"/>
+
+    </head>
+
+    <body style="background-image: url(./assets/image/bg.jpg);background-repeat: no-repeat;background-size:100% 190%;">
+        <div style="width: 60px;margin: 160px auto 0;"><h3>注册</h3></div>
+        <div style="width: 300px;margin: 30px auto;">
+            <div style="margin-bottom: 10px;">
+                <div style="width: 300px;border: 1px solid rgb(235, 235, 235);border-radius: 8px;">
+                    <div class="glyphicon glyphicon-user" style="margin: 0 5px;"></div>
+                    <input id="userId" type="text" placeholder="输入你的账号吧~" style="width: 260px;height: 30px;border: none ;outline:none;background-color: rgb(188, 224, 255,0);">
+                </div>
+                <div id="tishi1" style="color: red;height: 25px;"></div>
+            </div>
+            <div style="margin-bottom: 10px;">
+                <div style="width: 300px;border: 1px solid rgb(235, 235, 235);border-radius: 8px;">
+                    <div class="glyphicon glyphicon-envelope" style="margin: 0 5px;"></div>
+                    <input id=email type="email" onkeyup="toEmail()" placeholder="输入你的邮箱吧~" style="width: 260px;height: 30px;border: none ;outline:none;background-color: rgb(188, 224, 255,0);">
+                </div>
+                <div id="tishi2" style="color: red;height: 25px;"></div>
+            </div>
+            <div style="margin-bottom: 10px;">
+                <div style="width: 300px;border: 1px solid rgb(235, 235, 235);border-radius: 8px;">
+                    <div class="glyphicon glyphicon-asterisk" style="margin: 0 5px;"></div>
+                    <input id="password" type="password"  onkeyup="toPass()" placeholder="输入你的密码吧~" style="width: 260px;height: 30px;border: none ;outline:none;background-color: rgb(188, 224, 255,0);">
+                </div>
+                <div id="tishi3" style="color: red;height: 25px;"></div>
+            </div>
+            <div style="margin-bottom: 35px;">
+                <div style="width: 300px;border: 1px solid rgb(235, 235, 235);border-radius: 8px;">
+                    <div class="glyphicon glyphicon-asterisk" style="margin: 0 5px;"></div>
+                    <input id="password1" onkeyup="toPass()" type="password" placeholder="请再次确认你的密码吧~" style="width: 260px;height: 30px;border: none ;outline:none;background-color: rgb(188, 224, 255,0);">
+                </div>
+            </div>
+            
+            <button id="reginster" class="button1" onclick="toReginster()" style="width: 300px;margin: 0 0 30px;">注册</button>
+        </div>
+
+
+        <!-- js链接 -->
+        <script src="assets/js/jquery-3.1.1.js"></script>
+        <script src="assets/js/jquery-3.1.1.min.js"></script>
+        <script src="assets/js/bootstrap.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/myjs/register.js"></script>
+    </body>
+</html>
