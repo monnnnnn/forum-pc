@@ -108,6 +108,20 @@ function toFind() {
                         }else if(result.data[i].classify == 1){
                             classify = '账号';
                         }
+                        var dealTime;
+                        if(result.data[i].dealTime == null){
+                            dealTime = '暂无';
+                        }else{
+                            dealTime = result.data[i].dealTime;
+                        }
+                        var dealState;
+                        if(result.data[i].dealState == 1){
+                            dealState = '已处理';
+                            
+                        }else{
+                            dealState = '未处理';
+                            
+                        }
                         var tr;
                         tr =
                         '<td>' + result.data[i].targetId + '</td>' +
@@ -115,8 +129,8 @@ function toFind() {
                         '<td>' + result.data[i].userId + '</td>' +
                         '<td>' + result.data[i].context + '</td>' +
                         '<td>' + result.data[i].createTime + '</td>' +
-                        '<td>' + result.data[i].dealState + '</td>' +
-                        '<td>' + result.data[i].dealTime + '</td>' +
+                        '<td>' + dealState + '</td>' +
+                        '<td>' + dealTime + '</td>' +
                         '<td style="text-align:center;">' +
                         '<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#changeSource" style="padding:1px 4px;margin-left:5px" onclick="toDeal(' + result.data[i].accuseId + ')" >' + "处理" + '</button>' +
                         '</td>'
@@ -140,10 +154,19 @@ function toFind() {
                         }else if(result.data[i].classify == 1){
                             classify = '账号';
                         }
+                        var dealTime;
                         if(result.data[i].dealTime == null){
                             dealTime = '暂无';
                         }else{
                             dealTime = result.data[i].dealTime;
+                        }
+                        var dealState;
+                        if(result.data[i].dealState == 1){
+                            dealState = '已处理';
+                            
+                        }else{
+                            dealState = '未处理';
+                            
                         }
                         var tr;
                         tr =
@@ -152,7 +175,7 @@ function toFind() {
                             '<td>' + result.data[i].userId + '</td>' +
                             '<td>' + result.data[i].context + '</td>' +
                             '<td>' + result.data[i].createTime + '</td>' +
-                            '<td>' + result.data[i].dealState + '</td>' +
+                            '<td>' + dealState + '</td>' +
                             '<td>' + dealTime + '</td>' +
                             '<td style="text-align:center;">' +
                             '<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#changeSource" style="padding:1px 4px;margin-left:5px" onclick="toDeal(' + result.data[i].accuseId + ')" >' + "处理" + '</button>' +

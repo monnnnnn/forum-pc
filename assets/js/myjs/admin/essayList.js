@@ -99,6 +99,14 @@ function toFind() {
                         }else if(result.data[i].classify == 4){
                             classify = '娱乐活动';
                         }
+                        var state;
+                        if(result.data[i].state == 1){
+                            state = '禁用';
+                            
+                        }else{
+                            state = '正常';
+                            
+                        }
                         var tr;
                         tr = '<td>' + result.data[i].invitationId + '</td>' +
                             '<td>' + result.data[i].userId + '</td>' +
@@ -106,7 +114,7 @@ function toFind() {
                             '<td>' + classify + '</td>' +
                             '<td>' + result.data[i].regoin + '</td>' +
                             '<td>' + result.data[i].createTime + '</td>' +
-                            '<td>' + result.data[i].state + '</td>' +
+                            '<td>' + state + '</td>' +
                             '<td style="text-align:center;">' +
                             '<button class="btn btn-info btn-xs" data-toggle="modal" data-target="#changeSource" style="padding:1px 4px;margin-left:5px" onclick="toDetail(' + result.data[i].invitationId + ')" >' + "详情" + '</button>' +
                             '</td>'
@@ -136,6 +144,14 @@ function toFind() {
                         }else if(result.data[i].classify == 4){
                             classify = '娱乐活动';
                         }
+                        var state;
+                        if(result.data[i].state == 1){
+                            state = '禁用';
+                            
+                        }else{
+                            state = '正常';
+                            
+                        }
                         var tr;
                         tr = '<td>' + result.data[i].invitationId + '</td>' +
                             '<td>' + result.data[i].userId + '</td>' +
@@ -143,7 +159,7 @@ function toFind() {
                             '<td>' + classify + '</td>' +
                             '<td>' + result.data[i].regoin + '</td>' +
                             '<td>' + result.data[i].createTime + '</td>' +
-                            '<td>' + result.data[i].state + '</td>' +
+                            '<td>' + state + '</td>' +
                             '<td style="text-align:center;">' +
                             '<button class="btn btn-info btn-xs" data-toggle="modal" data-target="#changeSource" style="padding:1px 4px;margin-left:5px" onclick="toDetail(' + result.data[i].invitationId + ')" >' + "详情" + '</button>' +
                             '</td>'

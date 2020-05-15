@@ -76,12 +76,24 @@ function toFind() {
                 if(result.code == 200){
                     $("#userlist").empty();
                     for (i in result.data) {
+                        var state;
+                        var userRole;
+                        if(result.data[i].userRole == 0){
+                            userRole = '用户';
+                        }else{
+                            userRole = '管理员';
+                        }
+                        if(result.data[i].state == 0){
+                            state = '正常';
+                        }else{
+                            state = '禁用';
+                        }
                         var tr;
                         tr = '<td>' + result.data[i].userId + '</td>' +
                             '<td>' + result.data[i].userName + '</td>' +
                             '<td>' + result.data[i].email + '</td>' +
-                            '<td>' + result.data[i].userRole + '</td>' +
-                            '<td>' + result.data[i].state + '</td>' +
+                            '<td>' + userRole + '</td>' +
+                            '<td>' + state + '</td>' +
                             '<td style="text-align:center;">' +
                             '<button class="btn btn-info btn-xs" data-toggle="modal" data-target="#changeSource" style="padding:1px 4px;margin-left:5px" onclick="toDetail(' + result.data[i].userId + ')" >' + "详情" + '</button>' +
                             '</td>'
